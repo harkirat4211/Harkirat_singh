@@ -11,10 +11,21 @@ const pictures = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 const altText = {'pic.jpg' : 'Closeup Shot of Eye', 'pic2.jpg' : 'Waves', 'pic3.jpg' : 'Blue Flowers', 'pic4.jpg' : 'Ancient Drawing', 'pic5.jpg' : 'Butterfly'};
 
 /* Looping through images */
+for (const picture of pictures){
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', `images/${picture}`);
+    newImage.setAttribute('alt', altText[picture]);
+    thumbBar.appendChild(newImage);
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
+    newImage.addEventListener('click', function(e){
+        displayedImage.src = e.target.src;
+    });
+
+    newImage.addEventListener('click', function(e){
+        displayedImage.alt = e.target.alt;
+    });
+}
+
+
 
 /* Wiring up the Darken/Lighten button */
